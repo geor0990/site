@@ -14,14 +14,7 @@
         let ifr_height = document.documentElement.clientHeight
         let url = new URL(window.location.href);
         let film_id = url.searchParams.get("film_id")
-        let ifr = document.createElement("iframe")
-        ifr.setAttribute("src", "https://v1693156961.bazon.site/kp/"+film_id)
-        ifr.setAttribute("referrerpolicy", "origin")
-        ifr.setAttribute("allowfullscreen", "")
-        ifr.setAttribute("scrolling", "no")
-        ifr.setAttribute("width", "100%")
-        ifr.setAttribute("height", ifr_height+"px")
-        document.body.appendChild(ifr)
+        openTelegramLink ("https://www.youtube.com/watch?v=xQVLMio4RDE")
     </script>
 </body>
 </html>
