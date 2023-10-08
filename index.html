@@ -7,13 +7,15 @@
 </head>
 <body>
     <script>
+        let url = new URL(window.location.href);
+        let film_id = url.searchParams.get("film_id")
         let ifr = document.createElement("iframe")
-        ifr.setAttribute("src", "https://v1696759253.bazon.site/kp/462360/")
+        ifr.setAttribute("src", "https://v1693156961.bazon.site/kp/"+film_id)
         ifr.setAttribute("referrerpolicy", "origin")
         ifr.setAttribute("allowfullscreen", "")
         ifr.setAttribute("scrolling", "no")
-        ifr.setAttribute("height", "452px")
-        ifr.setAttribute("width", "800px")
+        ifr.setAttribute("height", "800px")
+        ifr.setAttribute("width", "452px")
         document.body.appendChild(ifr)
     </script>
 </body>
