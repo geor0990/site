@@ -11,6 +11,7 @@
     <script>
         let tg = window.Telegram.WebApp
         tg.expand()
+        let ifr_height = document.documentElement.clientHeight
         let url = new URL(window.location.href);
         let film_id = url.searchParams.get("film_id")
         let ifr = document.createElement("iframe")
@@ -18,8 +19,8 @@
         ifr.setAttribute("referrerpolicy", "origin")
         ifr.setAttribute("allowfullscreen", "")
         ifr.setAttribute("scrolling", "no")
-        ifr.setAttribute("height", "800px")
-        ifr.setAttribute("width", "452px")
+        ifr.setAttribute("width", "100%")
+        ifr.setAttribute("height", ifr_height+"px")
         document.body.appendChild(ifr)
     </script>
 </body>
