@@ -6,11 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    
     <script>
-        let tg = window.Telegram.WebApp
-        tg.expand()
+        let body_width = document.body.offsetWidth
         let ifr_height = document.documentElement.clientHeight
         let url = new URL(window.location.href);
         let film_id = url.searchParams.get("film_id")
@@ -20,9 +17,30 @@
         ifr.setAttribute("allowfullscreen", "")
         ifr.setAttribute("scrolling", "no")
         ifr.setAttribute("width", "100%")
-        ifr.setAttribute("height", ifr_height+"px")
+        ifr.setAttribute("height", (body_width/452*800+20)+"px")
+        let name_li = document.createElement("p")
+        name_li.textContent="Название:  "+json_info.rus
+        let year_li = document.createElement("p")
+        year_li.textContent="Год:  "+json_info.year
+        let country_li = document.createElement("p")
+        country_li.textContent= "Страна:  "+json_info.country
+        let director_li = document.createElement("p")
+        director_li.textContent="Режиссёр:  "+json_info.director
+        let genre_li = document.createElement("p")
+        genre_li.textContent="Жанр:  "+json_info.genre
+        let actors_li = document.createElement("p")
+        actors_li.textContent="Актёры: "+json_info.actors
+        let description_li = document.createElement("p")
+        description_li.textContent="Описание:  "+json_info.description
         document.body.appendChild(ifr)
-        
+        document.body.appendChild(name_li)
+        document.body.appendChild(year_li)
+        document.body.appendChild(country_li)
+        document.body.appendChild(director_li)
+        document.body.appendChild(genre_li)
+        document.body.appendChild(actors_li)
+        document.body.appendChild(description_li)
+        document.body.appendChild(ifr)
     </script>
 </body>
 </html>
