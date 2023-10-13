@@ -28,7 +28,7 @@
         ifr.setAttribute("allowfullscreen", "")
         ifr.setAttribute("scrolling", "no")
         ifr.setAttribute("width", "100%")
-        ifr.setAttribute("height", body_width/452*800+"px")
+        ifr.setAttribute("height", body_width/800*452+20+"px")
         json_info = get_by_id(film_id) 
         let name_li = document.createElement("p")
         name_li.textContent="Название:  "+json_info.rus
