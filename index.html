@@ -7,6 +7,17 @@
 </head>
 <body>
     <script>
+        function get_by_id(film_id){
+            let link = 'https://bazon.cc/api/search/?token=733aa1a3de92d90f5acffa0a9d03ad5d&title='+film_id
+            let xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", link, false ); 
+            xmlHttp.send();
+            if (xmlHttp.responseText=='{"error":"no file"}'){
+                return("not_found")
+            }
+            let json_info=(JSON.parse(xmlHttp.responseText)).results[0].info
+            return(json_info)
+        }
         let body_width = document.body.offsetWidth
         let ifr_height = document.documentElement.clientHeight
         let url = new URL(window.location.href);
@@ -17,7 +28,8 @@
         ifr.setAttribute("allowfullscreen", "")
         ifr.setAttribute("scrolling", "no")
         ifr.setAttribute("width", "100%")
-        ifr.setAttribute("height", (body_width/452*800+20)+"px")
+        ifr.setAttribute("height", body_width/452*800+"px")
+        json_info = get_by_id(film_id) 
         let name_li = document.createElement("p")
         name_li.textContent="Название:  "+json_info.rus
         let year_li = document.createElement("p")
@@ -40,7 +52,6 @@
         document.body.appendChild(genre_li)
         document.body.appendChild(actors_li)
         document.body.appendChild(description_li)
-        document.body.appendChild(ifr)
     </script>
 </body>
 </html>
